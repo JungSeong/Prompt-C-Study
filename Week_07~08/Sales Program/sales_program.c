@@ -1,27 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void set_employee_structure();
+void print_good_sellers();
+
 typedef struct
 {
     int num, result;
     char name[10];
 } Employee;
 
-void set_employee_struct();
-void print_good_sellers();
-
 int main()
 {
     Employee* employee = NULL;
     int size = 0;
 
-    set_employee_struct(&employee, &size);
+    set_employee_structure(&employee, &size);
     print_good_sellers(employee, size);
 
     free(employee);
 }
 
-void set_employee_struct(Employee ** employee, int *size)
+void set_employee_structure(Employee ** employee, int *size)
 {
     FILE* report = fopen("sales_report.txt", "r");
     char c;
@@ -30,6 +30,7 @@ void set_employee_struct(Employee ** employee, int *size)
     {
         while (EOF != (c = fgetc(report)))
         {
+            
             if (c == '\n')
             {
                 (*size)++;
