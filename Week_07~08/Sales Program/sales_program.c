@@ -46,6 +46,12 @@ void set_employee_structure(Employee ** employee, int *size)
         }
     }
 
+    else
+    {
+        printf("sales_report 파일이 없습니다!\n");
+        exit(1);
+    }
+
     fclose(report);
 }
 
